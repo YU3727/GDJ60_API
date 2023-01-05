@@ -26,10 +26,11 @@ public class StringStudy {
 		
 		//7교시
 		Scanner sc = new Scanner(System.in);
-		ch = sc.next().charAt(0); //sc.next()의 문자열에서 첫번쨰 글자(index 0)만 가져오기
+		//ch = sc.next().charAt(0); //sc.next()의 문자열에서 첫번쨰 글자(index 0)만 가져오기
 		
 		//indexOf
-		int num = str2.indexOf(100);
+		String str3 = new String("abcdefghijklmnopqrstuvwxyz");
+		int num = str3.indexOf('h'); //charAt(index int)의 반대, 못찾으면 -1
 		System.out.println(num);
 	}
 
