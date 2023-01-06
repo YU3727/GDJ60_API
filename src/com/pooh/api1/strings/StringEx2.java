@@ -3,7 +3,7 @@ package com.pooh.api1.strings;
 import java.util.Scanner;
 
 public class StringEx2 {
-//230106 1교시 Library(API) 에제
+//230106 2교시 Library(API) 에제
 	public static void main(String[] args) {
 		System.out.println("Start");
 		Scanner sc = new Scanner(System.in);
