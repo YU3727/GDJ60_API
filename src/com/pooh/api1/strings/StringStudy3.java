@@ -1,10 +1,16 @@
 package com.pooh.api1.strings;
 
+import java.util.Scanner;
+
 public class StringStudy3 {
 //230105 8교시 Library(API) 예제
 	public static void main(String[] args) {
+		Object object = new Object();
+		Scanner sc = new Scanner(System.in);
+		//클래스명 변수명 = new 생성자()
 		
-		String str1 = "hello"; 
+		//String은 불변
+		String str1 = "hello";
 		String str2 = "hello";
 		String str3 = new String("hello"); //char sequence = 문자열(??)
 		String str4 = new String("hello");
