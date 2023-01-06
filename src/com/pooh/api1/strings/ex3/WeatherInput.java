@@ -25,15 +25,36 @@ public class WeatherInput {
 				wd = wdtos[i];
 			}
 		}
-		//WeatherDTO 데이터 리턴
-		return wd; //wd는 WeatherDTO타입
+		return wd; //WeatherDTO 데이터 리턴
 	}
-	
-	
 	
 	
 	//add메서드
 	//배열을 받고, 키보드로 정보를 입력받아서(도시명 기온 상태 미세먼지농도) 배열에 추가하고 배열을 리턴 확인 > 2번누르기
+	public WeatherDTO [] add (WeatherDTO [] wdtos) {
+
+		Scanner sc = new Scanner(System.in);
+		//정보들을 넣어줄 wd 객체 하나 만들고
+		WeatherDTO wd = new WeatherDTO();
+		
+		//배열객체 만들고, 배열 한칸 늘리기(매개변수 배열보다 한칸 더 긴 배열을 만들어야한다)
+		WeatherDTO [] mod = new WeatherDTO[wdtos.length+1];
+		
+		//정보 입력받기
+		System.out.println("도시 이름을 입력해주세요");
+		wd.setCity(sc.next());
+		System.out.println("기온을 입력해주세요");
+		wd.setTemp(sc.next());
+		System.out.println("날씨상태를 입력해주세요");
+		wd.setStatus(sc.next());
+		
+		
+		
+		
+		
+		return wdtos;
+	}
+	
 	
 	
 	//remove

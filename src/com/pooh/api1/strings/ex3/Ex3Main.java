@@ -6,7 +6,12 @@ public class Ex3Main {
 		System.out.println("Start");
 		
 		//6교시 컨트롤러 만들어서 제어
-		WeatherController wc = new WeatherController();
+		//WeatherController클래스 변수 wc를 만듦. 객체주소가 또 필요한 경우 변수선언을 통해 객체를 만들어야한다.
+		WeatherController wc = new WeatherController(); //프로그램 실행때마다 객체를 생성
+		
+		//한번만 쓰고 더 작동할 필요가 없을때 - 위와 아래는 결과값은 같지만, 객체주소를 저장할수 있는가없는가의 차이
+		new WeatherController().start(); //객체하나로 계속 start메서드를 호출하는것
+		
 		wc.start(); //WeatherController 클래스의 start메서드 호출
 		
 		
