@@ -72,14 +72,15 @@ public class WeatherController {
 					wdto = wi.search(wdtos); //wdtos중 특정값을리턴, 이값을 wdto에 저장
 					wv.view(wdto);           //wdto를 view메서드에 집어넣어 출력
 					break;
-				case 4:
-					
-					
-				case 5:
-					
-					
-					
-				case 6:
+				case 4: //지역날씨추가
+					System.out.println("지역날씨를 추가합니다");
+					wdtos = wi.add(this.wdtos);
+					break; //입력만 하면 되니까 view는 안해줘도 된다.
+				case 5: //지역날씨삭제
+					System.out.println("지역날씨를 삭제합니다");
+					wdtos = wi.remove(wdtos);
+					break;
+				case 6: //프로그램종료
 					check = false;
 			
 			}//switch끝
