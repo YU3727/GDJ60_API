@@ -70,7 +70,11 @@ public class WeatherController {
 				case 3: //지역날씨검색
 					System.out.println("지역날씨를 검색합니다");
 					wdto = wi.search(wdtos); //wdtos중 특정값을리턴, 이값을 wdto에 저장
-					wv.view(wdto);           //wdto를 view메서드에 집어넣어 출력
+					if(wdto != null) {
+						wv.view(wdto);           //wdto를 view메서드에 집어넣어 출력
+					}else {
+						System.out.println("도시정보가 없습니다");
+					}
 					break;
 				case 4: //지역날씨추가
 					System.out.println("지역날씨를 추가합니다");
