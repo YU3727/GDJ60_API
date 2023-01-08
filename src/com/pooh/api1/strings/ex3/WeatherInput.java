@@ -79,12 +79,10 @@ public class WeatherInput {
 		//비교하고 인덱스 하나씩 줄여서 데이터 넣기
 		for(int i=0; i<wdtos.length; i++) {
 			if(cityName.equals(wdtos[i].getCity().toUpperCase())) {
-				idx++;
 				continue;
-			}else {
-				mod[i] = wdtos[idx];
-				idx++;
 			}
+			mod[idx] = wdtos[i];
+			idx++;
 		}
 		wdtos = mod;
 		return wdtos;

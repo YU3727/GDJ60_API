@@ -17,6 +17,8 @@ public class WeatherData {
 	//테스트는 메인에서 init를 호출하면 DTO 데이터 받아서 출력....
 	
 	
+
+	
 	//일단 리턴타입 void로 > 나중에 수정
 	public WeatherDTO [] init() {
 		
