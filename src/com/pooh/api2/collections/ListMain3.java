@@ -16,7 +16,7 @@ public class ListMain3 {
 		
 		int num = ar.get(0);
 		
-		//8교시
+		//8교시 - java의 메모리영역을 생각하고, 데이터가 어떻게 저장되는지 그림그려서 이해하기
 		ArrayList<WeatherDTO> ar2 = new ArrayList<>();
 		WeatherDTO wdto = new WeatherDTO();
 		wdto.setCity("Seoul");
