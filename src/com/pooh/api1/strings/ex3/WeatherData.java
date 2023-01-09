@@ -17,8 +17,6 @@ public class WeatherData {
 	//테스트는 메인에서 init를 호출하면 DTO 데이터 받아서 출력....
 	
 	
-
-	
 	//일단 리턴타입 void로 > 나중에 수정
 	public WeatherDTO [] init() {
 		
@@ -35,9 +33,9 @@ public class WeatherData {
 		for(int i=0; i<result.length/4; i++) {
 			WeatherDTO wdto = new WeatherDTO(); //매번마다 객체를 새로 만들어줘서 새 객체에 새 데이터가 들어가게끔. 객체는 몸통같은 느낌??인가
 			wdto.setCity(result[4*i]);
-			wdto.setTemp(result[4*i+1]);
+			wdto.setTemp(Integer.parseInt(result[4*i+1])); //parseInt를 씀
 			wdto.setStatus(result[4*i+2]);
-			wdto.setDust(result[4*i+3]);
+			wdto.setDust(Integer.parseInt(result[4*i+3]));
 			wethers[i] = wdto;
 		}
 		return wethers; //wdto 한세트값이 들어있는 배열 wethers

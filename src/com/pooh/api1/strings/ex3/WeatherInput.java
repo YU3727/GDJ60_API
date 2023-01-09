@@ -49,11 +49,11 @@ public class WeatherInput {
 		System.out.println("도시 이름을 입력해주세요");
 		wd.setCity(sc.next());
 		System.out.println("기온을 입력해주세요");
-		wd.setTemp(sc.next());
+		wd.setTemp(sc.nextInt());
 		System.out.println("날씨상태를 입력해주세요");
 		wd.setStatus(sc.next());
 		System.out.println("미세먼지농도를 입력해주세요");
-		wd.setDust(sc.next());
+		wd.setDust(Integer.parseInt(sc.next()));
 		
 		for(int i=0; i<wdtos.length; i++) {
 			mod[i] = wdtos[i];
