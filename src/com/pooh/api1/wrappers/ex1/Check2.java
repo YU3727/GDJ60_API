@@ -1,7 +1,7 @@
 package com.pooh.api1.wrappers.ex1;
 
 public class Check2 {
-//230109 4교시 Library(API) 예제 - 주민번호 검증
+//230109 java.lang.String 예제 - 주민번호 검증 4교시 5교시
 	
 	//check
 	//주민번호를 받아서(980724-1234567)
@@ -17,6 +17,7 @@ public class Check2 {
 	
 	String jm = "";
 	
+	//내가 하는 방법, 한번 해결해보기
 	public void check2(String pnum) {
 		this.jm = pnum;
 		
@@ -27,27 +28,92 @@ public class Check2 {
 //		
 //		
 		
-		String [] arr = new String[14];
-		String [] mod = new String[arr.length-1];
-		int idx = 0;
-		
-		for(int i=0; i<arr.length; i++) {
-			arr[i] = jm.substring(i, i+1);
-			System.out.println(arr[i]);
-			if(arr[i].equals("-")) {
-				continue;
-			}
-			mod[idx] = arr[i];
-			idx++;
-			System.out.println(mod[idx]);	
-		}
+//		String [] arr = new String[14];
+//		String [] mod = new String[arr.length-1];
+//		int idx = 0;
+//		
+//		for(int i=0; i<arr.length; i++) {
+//			arr[i] = jm.substring(i, i+1);
+//			System.out.println(arr[i]);
+//			if(arr[i].equals("-")) {
+//				continue;
+//			}
+//			mod[idx] = arr[i];
+//			idx++;
+//			System.out.println(mod[idx]);	
+//		}
 		
 		
 //		int c = Integer.parseInt(jm.substring(0, 1));
 //		System.out.println(c);
 		
+	}
 		
 		
 		
-	} //check2 메서드 끝
+		
+		//강사님 방법
+		public void check(String jumin) {
+			this.jm = jumin;
+			int num = 2; // i와 같은패턴으로 움직이지 않으면 다른변수를 선언해줘야함
+			int sum = 0;
+			for(int i=0; i<jumin.length()-1; i++) {
+				if(i==6) {
+					continue;
+				}
+				sum = sum + Integer.parseInt(jumin.substring(i, i+1))*num;
+				num++;
+				if(num==10) {
+					num=2;
+				}
+			}
+			
+			int result = sum%11;
+			result = 11 - result;
+			
+			if(result > 9) {
+				result = result%10;
+			}
+			
+			int flag = Integer.parseInt(jumin.substring(13));
+			
+			if(result == flag) {
+				System.out.println("정상 주민번호입니다");
+			}else {
+				System.out.println("잘못된 주민번호입니다");
+			}
+		}	
+		
+		
+		//substring 말고 charAt으로 해결해보기?
+		public void check3(String jumin) {
+			this.jm = jumin;
+			int num = 2; // i와 같은패턴으로 움직이지 않으면 다른변수를 선언해줘야함
+			int sum = 0;
+			for(int i=0; i<jumin.length()-1; i++) {
+				if(i==6) {
+					continue;
+				}
+				sum = sum + Integer.parseInt(String.valueOf(jumin.charAt(i)))*num;
+				num++;
+				if(num==10) {
+					num=2;
+				}
+			}
+			
+			int result = sum%11;
+			result = 11 - result;
+			
+			if(result > 9) {
+				result = result%10;
+			}
+			
+			int flag = Integer.parseInt(jumin.substring(13));
+			
+			if(result == flag) {
+				System.out.println("정상 주민번호입니다");
+			}else {
+				System.out.println("잘못된 주민번호입니다");
+			}
+		}	
 }

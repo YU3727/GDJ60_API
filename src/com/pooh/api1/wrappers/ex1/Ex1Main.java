@@ -3,7 +3,7 @@ package com.pooh.api1.wrappers.ex1;
 import java.util.Scanner;
 
 public class Ex1Main {
-//230109 Library(API) 예제 3교시, 4교시
+//230109 java.lang.String 예제 3교시, 4교시
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
@@ -17,7 +17,7 @@ public class Ex1Main {
 		
 		//4교시 예제
 		Check2 c2 = new Check2();
-		c2.check2(jumin);
+		c2.check3(jumin);
 	}
 
 }

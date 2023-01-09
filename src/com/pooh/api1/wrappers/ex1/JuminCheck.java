@@ -1,7 +1,7 @@
 package com.pooh.api1.wrappers.ex1;
 
 public class JuminCheck {
-//230109 3교시 Library(API) 예제
+//230109 java.lang.String 예제 3교시
 	
 	String jm = ""; // main으로부터 주민번호jm을 받아서 매개변수 pnum에 넣기
 	//check1
