@@ -32,7 +32,7 @@ public class ListMain2 {
 		//에러가 뜸.
 		//원래는
 		Object n1 = ar.get(0);
-		int n1 = (Integer)(ar.get(0)); //Auto Unboxing : reference type -> primitive type으로
+		n1 = (Integer)(ar.get(0)); //Auto Unboxing : reference type -> primitive type으로
 		double n2 = (Double)(ar.get(1)); //Auto Unboxing
 
 		
