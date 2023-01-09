@@ -18,7 +18,7 @@ public class StringToken1 {
 		
 		//2개를 합쳐야 하나의 데이터가 되니까 tokenizer가 편하다.
 		StringTokenizer st = new StringTokenizer(nations, ",");
-		while(st.hasMoreTokens()) { //index번호러ㅡㄹ
+		while(st.hasMoreTokens()) { 
 			NationDTO ndto = new NationDTO();
 			//첫번째에 자른건 처음에
 			String t1 = st.nextToken(); //자른곳에서부터 끝지점까지 찾음

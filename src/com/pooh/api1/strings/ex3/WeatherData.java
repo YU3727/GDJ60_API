@@ -1,7 +1,10 @@
 package com.pooh.api1.strings.ex3;
 
+import java.util.StringTokenizer;
+
 public class WeatherData {
 //230106 4교시 API 예제, 5교시 풀이
+//230109 java.util Package 6교시
 	private String data;
 	
 	//날씨정보의 데이터를 저장하려고 한다
@@ -18,28 +21,54 @@ public class WeatherData {
 	
 	
 	//일단 리턴타입 void로 > 나중에 수정
+//	public WeatherDTO [] init() {
+//		
+//		//1. 파싱하기
+//		String [] result = this.data.split(","); //result 배열에 파싱 완료
+//		
+////		//파싱 확인
+////		for(int i=0; i<result.length; i++) {
+////			System.out.println(result[i].trim());
+////		}
+//		
+//		//2. 파싱 됐으니 각 데이터 를 분류에 맞게 집어넣기?
+//		WeatherDTO [] wethers = new WeatherDTO[result.length/4];
+//		for(int i=0; i<result.length/4; i++) {
+//			WeatherDTO wdto = new WeatherDTO(); //매번마다 객체를 새로 만들어줘서 새 객체에 새 데이터가 들어가게끔. 객체는 몸통같은 느낌??인가
+//			wdto.setCity(result[4*i]);
+//			wdto.setTemp(Integer.parseInt(result[4*i+1])); //parseInt를 씀
+//			wdto.setStatus(result[4*i+2]);
+//			wdto.setDust(Integer.parseInt(result[4*i+3]));
+//			wethers[i] = wdto;
+//		}
+//		return wethers; //wdto 한세트값이 들어있는 배열 wethers
+//		
+//	}
+	
+	
+	
+	//java.util Package stringTokenizer 사용해서 만들어보기
 	public WeatherDTO [] init() {
 		
 		//1. 파싱하기
-		String [] result = this.data.split(","); //result 배열에 파싱 완료
+		StringTokenizer st = new StringTokenizer(this.data, ",");
 		
-//		//파싱 확인
-//		for(int i=0; i<result.length; i++) {
-//			System.out.println(result[i].trim());
-//		}
 		
-		//2. 파싱 됐으니 각 데이터 를 분류에 맞게 집어넣기?
-		WeatherDTO [] wethers = new WeatherDTO[result.length/4];
-		for(int i=0; i<result.length/4; i++) {
-			WeatherDTO wdto = new WeatherDTO(); //매번마다 객체를 새로 만들어줘서 새 객체에 새 데이터가 들어가게끔. 객체는 몸통같은 느낌??인가
-			wdto.setCity(result[4*i]);
-			wdto.setTemp(Integer.parseInt(result[4*i+1])); //parseInt를 씀
-			wdto.setStatus(result[4*i+2]);
-			wdto.setDust(Integer.parseInt(result[4*i+3]));
-			wethers[i] = wdto;
+		WeatherDTO [] wdtos = new WeatherDTO[st.countTokens()/4];
+		int i = 0;
+		while(st.hasMoreTokens()) {
+			WeatherDTO wdto = new WeatherDTO();
+			String t1 = st.nextToken();
+			wdto.setCity(t1);
+			String t2 = st.nextToken();
+			wdto.setTemp(Integer.parseInt(t2));
+			wdto.setStatus(st.nextToken());
+			wdto.setDust(Integer.parseInt(st.nextToken()));
+			wdtos[i] = wdto;
+			i++;
 		}
-		return wethers; //wdto 한세트값이 들어있는 배열 wethers
-		
+		return wdtos;	
 	}
+	
 	
 }
