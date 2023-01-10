@@ -7,7 +7,7 @@ public class ListMain3 {
 	public static void main(String[] args) {
 		//Collection은 Type에 대해 안전하지 않음(꺼낼때 형변환을 해줘야 하니까)
 		//Generic : Type의 안정성을 위한 장치
-		//E : 변수명
+		//Elements E : 변수명
 		
 		//E에는 Integer라는 값이 들어감.
 		ArrayList<Integer> ar = new ArrayList<>(); //이 ArrayList는 Integer 타입만 들어간다는 보장이 생김.
