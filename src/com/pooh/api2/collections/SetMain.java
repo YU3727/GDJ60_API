@@ -17,9 +17,9 @@ public class SetMain {
 		
 		System.out.println(hs.toString()); //toString 메서드를 오버라이딩 함
 		System.out.println(hs.size()); 
-		//hs.get index번호가 없으므로, get메서드를 쓸수없음
+		//hs.get : index번호가 없으므로 get메서드를 쓸수없음
 		
-		//Set의 Data들을 Iterator 형식으로 변경한다
+		//Set의 Data들을 출력하기 위해서는 Iterator 형식으로 변경한다
 		//변수 선언 - 다형성
 		Iterator<Integer> is = hs.iterator();
 		//interface든 추상클래스든 객체생성은 못하지만, 데이터타입으로는 쓸 수 있다.
