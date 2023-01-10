@@ -1,7 +1,7 @@
 package com.pooh.api2.collections.ex1;
 
 public class Ex1Main {
-//230110 Library(API) 예제 1교시
+//230110 Library(API) 예제 1~3교시
 	public static void main(String[] args) {
 		
 		//학생은 이름 번호 국어 영어 수학 총점 평균으로 이루어짐 >ArrayList를 쓰자

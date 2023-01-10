@@ -3,7 +3,7 @@ package com.pooh.api2.collections.ex1;
 import java.util.Scanner;
 
 public class StudentController {
-//230110 Library(API) 예제 1교시
+//230110 Library(API) 예제 1~3교시
 	
 	public StudentController () {}
 	
@@ -39,6 +39,7 @@ public class StudentController {
 				case 1:
 					System.out.println("학생정보를 초기화합니다");
 					sdao.init();
+					check = false; //임시 확인용
 					break;
 				case 2:
 					System.out.println("학생정보를 전체조회합니다");

@@ -1,7 +1,7 @@
 package com.pooh.api2.collections.ex1;
 
 public class StudentDTO {
-//230110 Library(API) 예제 1교시 2교시
+//230110 Library(API) 예제 1~3교시
 	//정보를 담을 가방이 필요하다
 	
 	private String name;
