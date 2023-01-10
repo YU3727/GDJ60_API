@@ -35,34 +35,27 @@ public class StudentDAO {
 		//System.out.println("토큰수 : "+st.countTokens()); //토큰 확인
 		ArrayList<StudentDTO> studentList = new ArrayList();
 		
-		for(int i=0; i<st.countTokens(); i++) {
+		while(st.hasMoreTokens()) {
 			StudentDTO studentDTO = new StudentDTO();
+
+			studentDTO.setName(st.nextToken());
 			
-			String name = st.nextToken();
-			studentDTO.setName(name);
+			studentDTO.setNum(Integer.parseInt(st.nextToken()));
 			
-			int num = Integer.parseInt(st.nextToken());
-			studentDTO.setNum(num);
+			studentDTO.setKor(Integer.parseInt(st.nextToken()));
 			
-			int kor = Integer.parseInt(st.nextToken());
-			studentDTO.setKor(kor);
+			studentDTO.setEng(Integer.parseInt(st.nextToken()));
 			
-			int eng = Integer.parseInt(st.nextToken());
-			studentDTO.setEng(eng);
+			studentDTO.setMath(Integer.parseInt(st.nextToken()));
 			
-			int math = Integer.parseInt(st.nextToken());
-			studentDTO.setMath(math);
+			studentDTO.setTotal(studentDTO.getKor()+studentDTO.getEng()+studentDTO.getMath());
 			
-			int total = kor + eng + math;
-			studentDTO.setTotal(total);
-			
-			double avg = total/3.0;
-			studentDTO.setAvg(avg);
+			studentDTO.setAvg(studentDTO.getTotal()/3.0);
 			
 			studentList.add(studentDTO);
 		}
 		
-		for(int i=0; i<st.countTokens(); i++) {
+		for(int i=0; i<studentList.size(); i++) {
 			System.out.println(studentList.get(i).getName());
 			System.out.println(studentList.get(i).getNum());
 			System.out.println(studentList.get(i).getKor());
@@ -76,15 +69,11 @@ public class StudentDAO {
 //		while(st.hasMoreTokens()){
 //			stuList.add
 //			
-//			
-//			
 //		}
 //		
 //		stuList.add(str); //체크용
 //		System.out.println("ArrayList : "+stuList.get(0));
-		
-		
-		
+
 		
 		//이건 아닌거같다;
 //		StudentDTO [] sdtos = new StudentDTO[st.countTokens()];
