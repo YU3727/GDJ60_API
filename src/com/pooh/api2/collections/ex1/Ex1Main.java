@@ -3,7 +3,7 @@ package com.pooh.api2.collections.ex1;
 import java.util.ArrayList;
 
 public class Ex1Main {
-//230110 Library(API) 예제 1~4교시
+//230110 Library(API) 예제 1~5교시
 	public static void main(String[] args) {
 		
 		//학생은 이름 번호 국어 영어 수학 총점 평균으로 이루어짐 -> 학생은 이런 데이터로 이루어져 있다.
@@ -15,10 +15,13 @@ public class Ex1Main {
 		//5.학생정보삭제(이름으로 검색)
 		//6.프로그램종료
 		
-		StudentDAO dao = new StudentDAO();
-		ArrayList<StudentDTO> ar = dao.init();
+		new StudentController().start();
 		
-		dao.addStudent(ar);
+		//
+//		StudentDAO dao = new StudentDAO();
+//		ArrayList<StudentDTO> ar = dao.init();
+//		
+//		dao.addStudent(ar);
 		
 		
 		//

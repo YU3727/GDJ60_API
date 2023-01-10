@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class StudentDAO {
-	//230110 Library(API) 예제 1~4교시
+//230110 Library(API) 예제 1~5교시
 	//원래 여기서 쓰는 개념은 아니지만 한번 써보자
 	
 	private StringBuffer sb; //getter/setter를 안쓰는건 이 변수는 여기서만 쓰려고
@@ -30,9 +30,9 @@ public class StudentDAO {
 		data = data.replace(" ", "-");
 		data = data.replace(",", "");
 		
-		System.out.println(data);
+		//System.out.println(data);
 		StringTokenizer st = new StringTokenizer(data, "-");
-		ArrayList<StudentDTO> ar = new ArrayList(); //ar은 호출되었을 때 값을 돌려주어야 하기 때문에 리턴타입이 되야함.
+		ArrayList<StudentDTO> ar = new ArrayList<>(); //ar은 호출되었을 때 값을 돌려주어야 하기 때문에 리턴타입이 되야함.
 
 		while(st.hasMoreTokens()) {
 			StudentDTO studentDTO = new StudentDTO(); //여러개의 데이터를 한 studentDTO 객체에 모음
@@ -111,7 +111,7 @@ public class StudentDAO {
 		System.out.println("삭제할 이름 입력");
 		String name = sc.next();
 		
-		//같은지 안같은지 비교해야하기 때문에 검색... - findByName 메서드와 유사
+		//같은지 안같은지 비교해야하기 때문에 검색... - findByName 메서드와 유사 1. 2. 선택해서 하기
 		//1. index 번호를 쓰는경우 : ar.remove(index n)
 //		for(int i=0; i<ar.size(); i++) {
 //			if(name.equals(ar.get(i).getName())) {
