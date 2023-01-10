@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class StudentController {
 //230110 Library(API) 예제 1교시
 	
-	Scanner sc = new Scanner(System.in);
 	public StudentController () {}
 	
 	//학생은 이름 번호 국어 영어 수학 총점 평균으로 이루어짐 >ArrayList를 쓰자
@@ -20,6 +19,11 @@ public class StudentController {
 	//프로그램 구동 메서드
 	public void start() {
 		
+		Scanner sc = new Scanner(System.in);
+		StudentController scon = new StudentController();
+		StudentDTO sdto = new StudentDTO();
+		StudentDAO sdao = new StudentDAO();
+		StudentView sv = new StudentView();
 		boolean check = true;
 		int select = 0;
 		
@@ -34,6 +38,7 @@ public class StudentController {
 					break;
 				case 1:
 					System.out.println("학생정보를 초기화합니다");
+					sdao.init();
 					break;
 				case 2:
 					System.out.println("학생정보를 전체조회합니다");
