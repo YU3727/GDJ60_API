@@ -13,8 +13,13 @@ public class Ex1Main {
 		//5.학생정보삭제(이름으로 검색)
 		//6.프로그램종료
 		
+		System.out.println("프로그램 시작");
 		
+		StudentController sc = new StudentController();
 		
+		sc.start();
+		
+		System.out.println("프로그램 종료");
 	}
 
 }

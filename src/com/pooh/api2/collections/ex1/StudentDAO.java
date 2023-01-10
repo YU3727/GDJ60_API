@@ -16,4 +16,12 @@ public class StudentDAO {
 		
 	}
 	
+	//초기화
+	public void init() {
+		
+		//1.파싱하기
+		
+		
+	}
+	
 }
