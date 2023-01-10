@@ -1,7 +1,7 @@
 package com.pooh.api2.collections.ex1;
 
 public class StudentDTO {
-	
+//230110 Library(API) 예제 3교시
 	//학생 한명은 이름~평균으로 이루어져 있다.(자바 언어로 바꾸어준 내용)
 	private String name;
 	private int num;
