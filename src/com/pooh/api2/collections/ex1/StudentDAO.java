@@ -3,6 +3,7 @@ package com.pooh.api2.collections.ex1;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -26,9 +27,14 @@ public class StudentDAO {
 	}
 	
 	
-	//학생정보백업
+	//학생정보백업 - 현재시간을 파일명으로 해서 백업파일 작성
 	public void backup (ArrayList<StudentDTO> ar) {
-		File file = new File("C:\\fileTest", "student.txt");
+		
+		Calendar ca = Calendar.getInstance();
+		Long d = ca.getTimeInMillis();
+		String s = Long.toString(d); //Long타입 > String타입으로 Wrapper
+		
+		File file = new File("C:\\fileTest", s+".txt");
 		
 		try {
 			FileWriter fw = new FileWriter(file);
