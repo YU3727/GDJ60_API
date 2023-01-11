@@ -36,7 +36,7 @@ public class StudentController {
 			//6.학생정보백업(java.io.File을 이용)
 			//7.프로그램종료
 			System.out.println("작업을 선택해주세요");
-			System.out.println("1.학생정보초기화  2.학생전체조회  3.학생검색조회  4.학생정보추가  5.학생정보삭제  6.프로그램종료");
+			System.out.println("1.학생정보초기화  2.학생전체조회  3.학생검색조회  4.학생정보추가  5.학생정보삭제  6.학생정보백업  7.프로그램종료");
 			int select = sc.nextInt();
 			
 			switch(select) {
@@ -74,15 +74,15 @@ public class StudentController {
 				}
 				break;
 			case 6:
+				System.out.println("6.학생정보를 백업합니다");
+				studentDAO.backup(ar);
 				break;
 			case 7:
-				System.out.println("6.프로그램을 종료합니다");
+				System.out.println("7.프로그램을 종료합니다");
 				check = false;
 			}
 		}
 		
 	}
-	
-	
 	
 }

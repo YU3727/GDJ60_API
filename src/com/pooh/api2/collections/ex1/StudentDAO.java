@@ -1,5 +1,7 @@
 package com.pooh.api2.collections.ex1;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
@@ -21,6 +23,27 @@ public class StudentDAO {
 		sb.append("suji, 3, 89, 74, 87 ");
 		sb.append("choa, 4, 71, 25, 99 ");
 		
+	}
+	
+	
+	//학생정보백업
+	public void backup (ArrayList<StudentDTO> ar) {
+		File file = new File("C:\\fileTest", "student.txt");
+		
+		try {
+			FileWriter fw = new FileWriter(file);
+//			fw.append(ar.toString()+"\r\n"); //확인용. 일단 이건 됨	
+			fw.append("이름-번호-국어-영어-수학\r\n");
+			for(StudentDTO studentDTO : ar) {
+				fw.append(studentDTO.getName()+"-"+studentDTO.getNum()+"-"+studentDTO.getKor()+"-"+
+			studentDTO.getEng()+"-"+studentDTO.getMath()+"\r\n");
+			}
+			fw.flush();	
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	}
 	
 	
