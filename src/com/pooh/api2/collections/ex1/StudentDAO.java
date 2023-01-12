@@ -1,6 +1,8 @@
 package com.pooh.api2.collections.ex1;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -27,6 +29,7 @@ public class StudentDAO {
 	}
 	
 	
+	//230111 8교시 예제, 230112 1교시 풀이
 	//학생정보백업 - 현재시간을 파일명으로 해서 백업파일 작성
 	public void backup (ArrayList<StudentDTO> ar) {
 		
@@ -35,9 +38,10 @@ public class StudentDAO {
 		String s = Long.toString(d); //Long타입 > String타입으로 Wrapper
 		
 		File file = new File("C:\\fileTest", s+".txt");
+		FileWriter fw = null;
 		
 		try {
-			FileWriter fw = new FileWriter(file);
+			fw = new FileWriter(file);
 //			fw.append(ar.toString()+"\r\n"); //확인용. 일단 이건 됨	
 			fw.append("이름-번호-국어-영어-수학\r\n");
 			for(StudentDTO studentDTO : ar) {
@@ -49,6 +53,50 @@ public class StudentDAO {
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
+		} finally {
+			try {
+				fw.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+	}
+	
+	//학생정보백업 - 강사님 방법(한번에 모아서 보내주는 방법)
+	public void studentBackup (ArrayList<StudentDTO> ar) {
+		File file = new File("C:\\fileTest", "student.txt");
+		
+		FileWriter fw = null; //try문 안에서 선언하면 try의 지역변수가 되어 finally문에서 사용할 수 없음.
+		
+		try {
+			fw = new FileWriter(file);
+			
+			for(StudentDTO studentDTO:ar) {
+				StringBuffer sb = new StringBuffer();
+				sb.append(studentDTO.getName());
+				sb.append("-");
+				sb.append(studentDTO.getNum());
+				sb.append("-");
+				sb.append(studentDTO.getKor());
+				sb.append("-");
+				sb.append(studentDTO.getEng());
+				sb.append("-");
+				sb.append(studentDTO.getMath());
+				sb.append("\r\n");
+				
+				fw.write(sb.toString());
+				fw.flush();
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				fw.close();		
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
 		}
 	}
 	
@@ -125,7 +173,7 @@ public class StudentDAO {
 	}
 	
 	
-	//학생정보초기화
+	//학생정보초기화 - 생성자에 입력된 초기값으로 초기화하기
 	public ArrayList<StudentDTO> init() {
 		//학생의 데이터를 분리했을 때 모여야 학생이 되므로 Tokenizer를 쓰는게 낫다.
 		String data = this.sb.toString();
@@ -163,7 +211,56 @@ public class StudentDAO {
 	}
 	
 	
-	
-	
+	//230112 1교시 예제풀이
+	//학생정보초기화 - 외부에서 데이터 읽어오기
+	public ArrayList<StudentDTO> init2() {
+		
+		//1. data를 외부에서 읽어오는걸로 하려면? > 파일의 객체를 만들어야한다
+		File file = new File("C:\\fileTest", "student.txt");
+		
+		//2. 파일 내용을 읽기위해 연결준비
+		FileReader fr = null;      //자원을 다 쓴 후에 해제시키기 위해 선언만 함
+		BufferedReader br = null;
+		ArrayList<StudentDTO> ar = new ArrayList<>(); //ar은 호출되었을 때 값을 돌려주어야 하기 때문에 리턴타입이 되야함.
+		
+		try { //연결
+			fr = new FileReader(file);
+			br = new BufferedReader(fr);
+			String data1 = null;
+			
+			while((data1=br.readLine()) != null) {
+				data1 = data1.replace(" ", "-");
+				data1 = data1.replace(",", "");
+				StringTokenizer st = new StringTokenizer(data1, "-");
+				
+				while(st.hasMoreTokens()) {
+					StudentDTO studentDTO = new StudentDTO(); //여러개의 데이터를 한 studentDTO 객체에 모음
+					studentDTO.setName(st.nextToken());
+					studentDTO.setNum(Integer.parseInt(st.nextToken()));
+					studentDTO.setKor(Integer.parseInt(st.nextToken()));
+					studentDTO.setEng(Integer.parseInt(st.nextToken()));
+					studentDTO.setMath(Integer.parseInt(st.nextToken()));
+					studentDTO.setTotal(studentDTO.getKor()+studentDTO.getEng()+studentDTO.getMath());
+					studentDTO.setAvg(studentDTO.getTotal()/3.0);
+				
+					ar.add(studentDTO);
+				}
+			}	
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try { //연결 해제는 연결의 역순
+				br.close();
+				fr.close();	
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		
+			//studentDTO 변수는 중괄호가 사라지면 없어지니까.... 이 정보를 저장해둘 무언가가 필요하다
+			//이전까진 배열이였지만, 이젠 ArrayList를 쓰면 된다.
+		return ar;
+	}
 	
 }
