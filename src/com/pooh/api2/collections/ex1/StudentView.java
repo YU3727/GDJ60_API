@@ -23,13 +23,13 @@ public class StudentView {
 	//학생 한명 출력
 	public void view (StudentDTO studentDTO) {
 		
-		System.out.println("이름 : "+studentDTO.getName());
-		System.out.println("번호 : "+studentDTO.getNum());
-		System.out.println("국어점수 : "+studentDTO.getKor());
-		System.out.println("영어점수 : "+studentDTO.getEng());
-		System.out.println("수학점수 : "+studentDTO.getMath());
-		System.out.println("총점 : "+studentDTO.getTotal());
-		System.out.println("평균 : "+studentDTO.getAvg());
+		System.out.println("Name : "+studentDTO.getName());
+		System.out.println("Num : "+studentDTO.getNum());
+		System.out.println("Kor : "+studentDTO.getKor());
+		System.out.println("Eng : "+studentDTO.getEng());
+		System.out.println("Math : "+studentDTO.getMath());
+		System.out.println("Total : "+studentDTO.getTotal());
+		System.out.println("Avg : "+studentDTO.getAvg());
 	}
 	
 }

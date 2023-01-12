@@ -10,7 +10,8 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class StudentDAO {
-//230110 Library(API) 예제 1~5교시
+//230110 1~5교시 Library(API) 예제
+//230112 1~2교시 Filo io, 외부로부터 데이터 입력받고 출력해주기 연습
 	//원래 여기서 쓰는 개념은 아니지만 한번 써보자
 	
 	private StringBuffer sb; //getter/setter를 안쓰는건 이 변수는 여기서만 쓰려고
@@ -43,7 +44,6 @@ public class StudentDAO {
 		try {
 			fw = new FileWriter(file);
 //			fw.append(ar.toString()+"\r\n"); //확인용. 일단 이건 됨	
-			fw.append("이름-번호-국어-영어-수학\r\n");
 			for(StudentDTO studentDTO : ar) {
 				fw.append(studentDTO.getName()+"-"+studentDTO.getNum()+"-"+studentDTO.getKor()+"-"+
 			studentDTO.getEng()+"-"+studentDTO.getMath()+"\r\n");
@@ -197,26 +197,36 @@ public class StudentDAO {
 			ar.add(studentDTO);
 			//studentDTO 변수는 중괄호가 사라지면 없어지니까.... 이 정보를 저장해둘 무언가가 필요하다
 			//이전까진 배열이였지만, 이젠 ArrayList를 쓰면 된다.
-			
-//			//확인용
-//			System.out.println(st.nextToken());
-//			System.out.println(st.nextToken());
-//			System.out.println(st.nextToken());
-//			System.out.println(st.nextToken());
-//			System.out.println(st.nextToken());
-//			System.out.println("================");
-			
+				
 		}	
 		return ar;
 	}
 	
 	
-	//230112 1교시 예제풀이
+	//230112 1~2교시 예제풀이
 	//학생정보초기화 - 외부에서 데이터 읽어오기
 	public ArrayList<StudentDTO> init2() {
 		
 		//1. data를 외부에서 읽어오는걸로 하려면? > 파일의 객체를 만들어야한다
-		File file = new File("C:\\fileTest", "student.txt");
+		File file = new File("C:\\fileTest");
+		
+		//파일의 이름을 string으로 받아옴
+		String [] files = file.list();
+		long max = 0;
+		for(String name : files) { //String이기 때문에 숫자로 바꿔야 하는것
+			//name = name.replace(".txt", "");
+			name = name.substring(0, name.lastIndexOf("."));
+			long date = Long.parseLong(name); //String -> long타입으로
+			//System.out.println(fName); //확인용
+			
+			//큰값을 max에 넣을거다. 이걸 파일 이름만큼 반복
+			if(date > max) {
+				max = date; //max에는 제일 큰 값이 있다.
+			}
+		}
+		
+		file = new File("C:\\fileTest", max+".txt");
+	
 		
 		//2. 파일 내용을 읽기위해 연결준비
 		FileReader fr = null;      //자원을 다 쓴 후에 해제시키기 위해 선언만 함
@@ -233,19 +243,18 @@ public class StudentDAO {
 				data1 = data1.replace(",", "");
 				StringTokenizer st = new StringTokenizer(data1, "-");
 				
-				while(st.hasMoreTokens()) {
-					StudentDTO studentDTO = new StudentDTO(); //여러개의 데이터를 한 studentDTO 객체에 모음
-					studentDTO.setName(st.nextToken());
-					studentDTO.setNum(Integer.parseInt(st.nextToken()));
-					studentDTO.setKor(Integer.parseInt(st.nextToken()));
-					studentDTO.setEng(Integer.parseInt(st.nextToken()));
-					studentDTO.setMath(Integer.parseInt(st.nextToken()));
-					studentDTO.setTotal(studentDTO.getKor()+studentDTO.getEng()+studentDTO.getMath());
-					studentDTO.setAvg(studentDTO.getTotal()/3.0);
-				
-					ar.add(studentDTO);
-				}
-			}	
+				//버퍼로 한학생의 정보만 받아왔기 때문에 반복문을 두번 할 필요 없음
+				StudentDTO studentDTO = new StudentDTO(); //여러개의 데이터를 한 studentDTO 객체에 모음
+				studentDTO.setName(st.nextToken());
+				studentDTO.setNum(Integer.parseInt(st.nextToken()));
+				studentDTO.setKor(Integer.parseInt(st.nextToken()));
+				studentDTO.setEng(Integer.parseInt(st.nextToken()));
+				studentDTO.setMath(Integer.parseInt(st.nextToken()));
+				studentDTO.setTotal(studentDTO.getKor()+studentDTO.getEng()+studentDTO.getMath());
+				studentDTO.setAvg(studentDTO.getTotal()/3.0);
+			
+				ar.add(studentDTO);
+				}	
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

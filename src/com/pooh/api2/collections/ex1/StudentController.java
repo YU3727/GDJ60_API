@@ -45,7 +45,7 @@ public class StudentController {
 				break;
 			case 1: 
 				System.out.println("1.학생정보를 초기화합니다");
-				ar = studentDAO.init(); //리턴으로 학생정보들의 모음인 arraylist가 나오므로 어딘가에 저장해야함.
+				ar = studentDAO.init2(); //리턴으로 학생정보들의 모음인 arraylist가 나오므로 어딘가에 저장해야함.
 				break;
 			case 2:
 				System.out.println("2.학생정보를 전체조회합니다");

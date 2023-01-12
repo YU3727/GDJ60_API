@@ -16,6 +16,7 @@ public class Ex1Main {
 		//6.프로그램종료
 		
 		new StudentController().start();
+
 		
 		//
 //		StudentDAO dao = new StudentDAO();
