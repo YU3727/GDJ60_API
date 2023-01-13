@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
+import javax.print.attribute.Size2DSyntax;
+
 public class StudentDAO {
 //230113 2교시 예제
 	
@@ -78,8 +80,17 @@ public class StudentDAO {
 		return ar;
 	} //init 메서드 끝
 	
-	
-	
+	//1. 전체학생정보 출력을 해달라고 할때
+	//요청은 msg(String)으로, 내 정보는 sdto(StudentDTO)에서
+	public void studentInfo (String msg, ArrayList<StudentDTO> sdto) {
+		
+		StudentDTO [] students = new StudentDTO[sdto.size()];
+		//생각정리
+		//학생 배열을 하나 만들고 여기에 ar값의 데이터 하나를 넣고 얘를 string으로 만들어서 리턴해주고 이 리턴값을 컨트롤러에서 write? 어케해야하지
+		
+		
+		
+	} //1번기능메서드 종료
 	
 	
 	

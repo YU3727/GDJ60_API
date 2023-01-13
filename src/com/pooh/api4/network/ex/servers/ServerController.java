@@ -19,16 +19,20 @@ public class ServerController {
 		
 		//1번 초기화
 		ar = sdao.init();
-		
-		for(StudentDTO sdto : ar) {
-		System.out.println(sdto.getName());
-		System.out.println(sdto.getNum());
-		System.out.println(sdto.getKor());
-		System.out.println(sdto.getEng());
-		System.out.println(sdto.getMath());
-		System.out.println(sdto.getTotal());
-		System.out.println(sdto.getAvg());
+		if(ar != null) {
+			System.out.println("초기화 완료");
 		}
+		
+		//데이터 들어있는지 확인용
+//		for(StudentDTO sdto : ar) {
+//		System.out.println(sdto.getName());
+//		System.out.println(sdto.getNum());
+//		System.out.println(sdto.getKor());
+//		System.out.println(sdto.getEng());
+//		System.out.println(sdto.getMath());
+//		System.out.println(sdto.getTotal());
+//		System.out.println(sdto.getAvg());
+//		}
 		
 		
 		
