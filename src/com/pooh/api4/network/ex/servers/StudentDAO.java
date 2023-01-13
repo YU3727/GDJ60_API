@@ -80,23 +80,34 @@ public class StudentDAO {
 		return ar;
 	} //init 메서드 끝
 	
+	
 	//1. 전체학생정보 출력을 해달라고 할때
 	//요청은 msg(String)으로, 내 정보는 sdto(StudentDTO)에서
-	public void studentInfo (String msg, ArrayList<StudentDTO> sdto) {
+	public String studentInfo (ArrayList<StudentDTO> sdto) {
 		
-		StudentDTO [] students = new StudentDTO[sdto.size()];
+		//StudentDTO [] students = new StudentDTO[sdto.size()];
 		//생각정리
 		//학생 배열을 하나 만들고 여기에 ar값의 데이터 하나를 넣고 얘를 string으로 만들어서 리턴해주고 이 리턴값을 컨트롤러에서 write? 어케해야하지
+		//Server는 학생데이터값을 보내주기만 해도 됨
+		//모든 학생을 하나의 스트링으로 모으기
+		
+		sb = new StringBuffer();
+		String data = null;
+		
+		//ArrayList에 데이터가 남아있는한 계속 돌아가야함
+		
+		sb.append(sdto);
+
+		System.out.println(sb.toString());
+		
+		String s = sb.toString();
+		return s;
+		
+		
 		
 		
 		
 	} //1번기능메서드 종료
-	
-	
-	
-	
-	
-	
 	
 	
 	

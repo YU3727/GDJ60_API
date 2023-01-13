@@ -7,32 +7,38 @@ public class ServerController {
 	
 	StudentDAO sdao;
 	ArrayList<StudentDTO> ar;
+	int select
 	
 	public ServerController() {
 		this.sdao = new StudentDAO();
 		this.ar = new ArrayList<>();
+		this.select = 0;
 	} //생성자 끝
 	
 	
 	//컨트롤러 메인 실행창
 	public void start() {
 		
-		//1번 초기화
+		//실행시 초기화
 		ar = sdao.init();
 		if(ar != null) {
 			System.out.println("초기화 완료");
 		}
 		
-		//데이터 들어있는지 확인용
-//		for(StudentDTO sdto : ar) {
-//		System.out.println(sdto.getName());
-//		System.out.println(sdto.getNum());
-//		System.out.println(sdto.getKor());
-//		System.out.println(sdto.getEng());
-//		System.out.println(sdto.getMath());
-//		System.out.println(sdto.getTotal());
-//		System.out.println(sdto.getAvg());
-//		}
+		//1번 전체데이터 출력(보내주기)
+		switch (select) {
+		default :
+		case 1: //전체학성정보 client로 보내주기
+			StudentDAO sdao = new StudentDAO();
+			ar = sdao.init();
+			sdao.studentInfo(ar);
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		}
+		
 		
 		
 		

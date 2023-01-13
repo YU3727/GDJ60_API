@@ -34,6 +34,7 @@ public class ServerMain {
 			ServerController scon = new ServerController();
 			scon.start();
 			
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
