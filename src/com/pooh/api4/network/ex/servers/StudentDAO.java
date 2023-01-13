@@ -94,8 +94,9 @@ public class StudentDAO {
 		
 		//ArrayList에 데이터가 남아있는한 계속 돌아가야함
 		for(StudentDTO sdto : ar) {
-			sb.append(sdto.getName()+"-"+sdto.getNum()+"-"+sdto.getKor()+"-"+sdto.getEng()+"-"+sdto.getMath()+"-"+sdto.getTotal()+"-"+sdto.getAvg()+"-");
+			sb.append(sdto.getName()+"-"+sdto.getNum()+"-"+sdto.getKor()+"-"+sdto.getEng()+"-"+sdto.getMath()+"-");
 		}
+		//+sdto.getTotal()+"-"+sdto.getAvg()+"-" //데이터 5개만 보내기...
 		
 		String s = sb.toString();
 		//System.out.println(s); //확인용

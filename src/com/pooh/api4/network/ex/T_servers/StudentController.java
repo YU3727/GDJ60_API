@@ -45,22 +45,29 @@ public class StudentController {
 		boolean check =  true;
 		
 		while(check) {
-			String select = br.readLine(); //선택번호?data의 형태로 보내기로 약속
-			String [] s = select.split("?");
+			String select = br.readLine(); //선택번호:data의 형태로 보내기로 약속
+			String [] s = select.split(":");
 			
 			switch(s[0]) {
 			case "1": //전체정보 보내기
+				//1:
+				select = sdao.makeList(ar);
 				break;
-			case "2":
+			case "2": //학생검색정보
+				//1:iu < s[1]째 데이터
+				//select = sdao.findByName(ar, s[1]); //ar데이터 뭉치에서 s[1]을 찾아와달라
 				break;
-			case "3":
+			case "3": //학생추가
+				//1:iu-4-50-75-80
+				//s[1]도 하나의 문자열 > 파싱
+				//select = sdao.addStudent(ar, s[1]); //ar에 집어넣을건데 정보는 s[1]번째에 있음
 				break;
-			case "4":
+			case "4": //학생정보삭제 > 2번과 비슷
+				//
 				break;
-			case "5":
+			case "5": //프로그램 종료
 				break;
 			default:
-				select = sdao.makeList(ar);
 				check = false;
 				if(check) {
 					bw.write(select+"\r\n");

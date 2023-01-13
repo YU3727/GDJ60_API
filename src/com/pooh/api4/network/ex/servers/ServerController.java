@@ -18,9 +18,8 @@ public class ServerController {
 	StudentDTO sdto;
 	StudentInput si;
 	ArrayList<StudentDTO> ar;
-	int select;
+	String select;
 	boolean check;
-	String s;
 	
 	ServerSocket ss = null;
 	Socket socket = null;
@@ -39,9 +38,7 @@ public class ServerController {
 		this.sdto = new StudentDTO();
 		this.si = new StudentInput();
 		this.ar = new ArrayList<>();
-		this.select = 0;
 		check = true;
-		s = "";
 		
 		//실행시 초기화
 		ar = sdao.init();
@@ -70,25 +67,33 @@ public class ServerController {
 			bw = new BufferedWriter(ow);
 			
 			while(check) {
-				select = br.read();
-				System.out.println(select);
+				select = br.readLine(); //선택번호:data의 형태로 보내기로 약속
+				String [] s = select.split("@"); //원하는 명령번호@ 데이터
+				
 				//1번 전체데이터 출력(보내주기)
-				switch (select) {
-				default :
-				case 1: //전체학성정보 client로 보내주기
-					System.out.println("test");
+				switch (s[0]) {
+				case "1": //전체학성정보 client로 보내주기
 					StudentDAO sdao = new StudentDAO();
-					s = sdao.studentInfo(ar);
-					System.out.println(s);
-					bw.write(s+"\r\n");
-					bw.flush();
+					select = sdao.studentInfo(ar);
+					System.out.println(select);
 					System.out.println("전체학생 정보를 보냅니다.");
 					check = false;
 					break;
-				case 2:
+				case "2":
+					StudentDTO sdto = new StudentDTO();
+					//s[1]에 들어있는 데이터 iu-1-50-60-70를 파싱해서 이름비교, 있으면 데이터 리턴, 없으면 찾는학생이 없음 리턴
+					
 					break;
-				case 3:
+				case "3":
 					break;
+				case "4":
+					break;
+				case "5":
+					break;
+				default :
+					bw.write(select+"\r\n");
+					bw.flush();
+					
 				}	
 			} //while 끝
 			
