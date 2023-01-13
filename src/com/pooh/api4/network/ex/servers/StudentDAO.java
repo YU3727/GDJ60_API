@@ -75,16 +75,6 @@ public class StudentDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//ar에 초기데이터 세팅 완료된거 확인
-//		for(StudentDTO sdto : ar) {
-//			System.out.println(sdto.getName());
-//			System.out.println(sdto.getNum());
-//			System.out.println(sdto.getKor());
-//			System.out.println(sdto.getEng());
-//			System.out.println(sdto.getMath());
-//			System.out.println(sdto.getTotal());
-//			System.out.println(sdto.getAvg());
-//		}
 		return ar;
 	} //init 메서드 끝
 	

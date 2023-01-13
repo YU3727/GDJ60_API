@@ -28,20 +28,9 @@ public class ServerMain {
 		
 		
 		//테스트용 구분선
-		
-		StudentDAO sdao = new StudentDAO();
-		ArrayList<StudentDTO> ar = new ArrayList<>();
-		ar = sdao.init();
-		
-		for(StudentDTO sdto : ar) {
-		System.out.println(sdto.getName());
-		System.out.println(sdto.getNum());
-		System.out.println(sdto.getKor());
-		System.out.println(sdto.getEng());
-		System.out.println(sdto.getMath());
-		System.out.println(sdto.getTotal());
-		System.out.println(sdto.getAvg());
-		}
+		ServerController scon = new ServerController();
+		scon.start();
+
 		
 	} //메인메서드 끝
 
