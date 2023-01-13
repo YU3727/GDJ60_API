@@ -15,7 +15,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Server2 {
-//230112 7~8교시 Network
+//230112 7~8교시 Network 예제
+//230113 1교시 Network 예제 풀이
 	public static void main(String[] args) {
 		
 		//Client 접속 대기
@@ -57,13 +58,13 @@ public class Server2 {
 				br = new BufferedReader(ir);
 				
 				msg = br.readLine();
-				a = Integer.parseInt(msg); //메시지 식별까지 완료(입력된 메시지를 a에 int로 담아둠)
-				//Clinet로부터 대답이 null이면 종료
 				if(msg == null) {
 					System.out.println("Client의 요청으로 연결을 종료합니다");
 					check = false;
 					break;
 				}
+				a = Integer.parseInt(msg); //메시지 식별까지 완료(입력된 메시지를 a에 int로 담아둠)
+				//Clinet로부터 대답이 null이면 종료
 				
 				//출력부로 Client로 메시지 주기
 				os = socket.getOutputStream();

@@ -12,7 +12,8 @@ import java.net.UnknownHostException;
 import java.util.Scanner;
 
 public class Client2 {
-//230112 7~8교시 Network
+//230112 7~8교시 Network 예제
+//230113 1교시 Network 예제 풀이
 	public static void main(String[] args) {
 		
 		//1.서버 접속 시도
@@ -62,6 +63,11 @@ public class Client2 {
 				System.out.println("작업을 선택해주세요");
 				System.out.println("1.점심메뉴 추천  2.저녁메뉴 추천  3.프로그램종료");
 				msg = sc.nextLine();
+				a = Integer.parseInt(msg);
+				if(a == 3) {
+					System.out.println("프로그램을 종료합니다");
+					break;
+				}
 				
 				//메시지를 Server로 보냄
 				bw.write(msg+"\r\n");
@@ -69,10 +75,10 @@ public class Client2 {
 				
 				//Server가 골라준 메뉴 받기
 				msg = br.readLine();
-				if(msg == null) {
-					System.out.println("3.프로그램을 종료합니다");
-					break;
-				}
+//				if(msg == null) {
+//					System.out.println("3.프로그램을 종료합니다");
+//					break;
+//				}
 				System.out.println("추천 메뉴는 "+msg+"입니다\n");
 				
 			}
